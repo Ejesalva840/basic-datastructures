@@ -1,0 +1,2 @@
+# Used to let travis know what language is being used
+language: java
