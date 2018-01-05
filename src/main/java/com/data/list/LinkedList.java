@@ -3,6 +3,12 @@ package com.data.list;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * Generic iterable linked list
+ * @author Ejesalva
+ *
+ * @param <T>
+ */
 public class LinkedList<T> implements Iterable<T> {
 
 	private Node first;
@@ -15,6 +21,14 @@ public class LinkedList<T> implements Iterable<T> {
 		this.size = 0;
 	}
 	
+	/**
+	 * Adds the item to the end of the linked list.
+	 * <p>This method runs in O(1) time due to a reference of the last node being held
+	 *  
+	 * @param item object/data/item to be added
+	 * @return true if the append is successful
+	 * @throws NullPointException if the item given is null
+	 */
 	public boolean add(T item) {
 		if(item == null) { throw new NullPointerException(ERROR_EMPTY_ITEM_ADD); }
 		
@@ -31,7 +45,17 @@ public class LinkedList<T> implements Iterable<T> {
 		
 		return true;
 	}
-	
+
+	/**
+	 * Removes item from the linked list.
+	 * 
+	 * <p>This method runs in O(n) time.
+	 * 
+	 * @param item object/data/item to be deleted from list
+	 * @return true if remove is successful
+	 * @throws NullPointerException if list is empty
+	 * @throws NullPointerException if item to remove is empty
+	 */
 	public boolean remove(T item) {
 		if(isEmpty()) { throw new NullPointerException(ERROR_EMPTY_LIST); }
 		if(item == null) { throw new NullPointerException(ERROR_EMPTY_ITEM); }
@@ -60,10 +84,18 @@ public class LinkedList<T> implements Iterable<T> {
 		return isRemoved;
 	}
 	
+	/**
+	 * Returns the size of the linked list
+	 * @return integer size of list
+	 */
 	public int size() {
 		return this.size;
 	}
 	
+	/**
+	 * Checks if linked list is empty
+	 * @return true if list is empty
+	 */
 	public boolean isEmpty() {
 		return size == 0;
 	}

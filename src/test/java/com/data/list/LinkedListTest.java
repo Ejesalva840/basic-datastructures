@@ -6,6 +6,11 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for linked list
+ * @author Ejesalva
+ *
+ */
 public class LinkedListTest {
 
 	private LinkedList<String> list;
@@ -116,4 +121,18 @@ public class LinkedListTest {
 
 		assertThat(list.toString()).hasToString("[Item 1 Item 2 ]");
 	}
+	
+	/* ISEMPTY */
+	@Test
+	public void givenEmptyList_callIsEmpty_shouldReturnTrue() {
+		assertThat(list.isEmpty()).isTrue();
+	}
+	
+	/* SIZE */
+	@Test
+	public void givenListOfOne_callSize_shouldReturnOne() {
+		list.add("Item 1");
+
+		assertThat(list.size()).isEqualTo(1);
+	}	
 }
