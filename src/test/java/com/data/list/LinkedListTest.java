@@ -50,6 +50,32 @@ public class LinkedListTest {
 	}
 	
 	@Test
+	public void givenList_whenRemoveHeadItem_itemShouldNotBeInList() {
+		list.add("Item 1");
+		list.add("Item 2");
+		list.add("Item 3");
+
+		list.remove("Item 1");
+		
+		assertThat(list).containsSequence(
+				"Item 2"
+				, "Item 3");
+	}
+	
+	@Test
+	public void givenList_whenRemoveLastItem_itemShouldNotBeInList() {
+		list.add("Item 1");
+		list.add("Item 2");
+		list.add("Item 3");
+
+		list.remove("Item 3");
+		
+		assertThat(list).containsSequence(
+				"Item 1"
+				, "Item 2");
+	}
+	
+	@Test
 	public void givenListOfOne_whenRemoveItem_itemShouldNotBeInList() {
 		list.add("Item 1");
 
@@ -82,4 +108,12 @@ public class LinkedListTest {
 		assertThat(thown).isInstanceOf(NullPointerException.class);
 	}
 	
+	/* TOSTRING */
+	@Test
+	public void givenList_callToString_shouldListAllValues() {
+		list.add("Item 1");
+		list.add("Item 2");
+
+		assertThat(list.toString()).hasToString("[Item 1 Item 2 ]");
+	}
 }
